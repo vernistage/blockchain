@@ -8,9 +8,13 @@ class Blockchain(object):
         self.chain = []
         self.current_transaction = []
 
-    def new_block(self):
+        # Create the genesis block
+        self.new_block(previous_hash=1, proof=100)
+
+    def new_block(self, proof, previous_hash=None):
         """
-        Creates a new Block and adds it to the chain
+        Creates a new Block in the Blockchain
+
         :param proof: <int> The proof given by the Proof of Work algorithm
         :param previous_hash: (Optional) <str> Hash of previous Block
         :return: <dict> New Block
